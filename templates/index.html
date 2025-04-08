@@ -9,7 +9,7 @@
 </head>
 <body>
     <header class="header">
-        <h1>Napi Menü</h1>
+        <h1>PG</h1>
     </header>
 
     <main class="container">
@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Data will be populated by JavaScript -->
+
                 </tbody>
             </table>
         </div>
@@ -37,13 +37,13 @@
                 const tableBody = document.querySelector('#menu-table tbody');
                 tableBody.innerHTML = '';
 
-                data.menu.forEach(item => {
+                data.menu.forEach(pg => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${item.a_menu}</td>
-                        <td>${item.b_menu}</td>
-                        <td>${item.leves}</td>
-                        <td>${item.start}</td>
+                        <td>${pg.a_menu}</td>
+                        <td>${pg.b_menu}</td>
+                        <td>${pg.leves}</td>
+                        <td>${pg.start}</td>
                     `;
                     tableBody.appendChild(row);
                 });

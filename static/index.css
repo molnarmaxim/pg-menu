@@ -7,13 +7,16 @@
     --gray-900: #111827;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@200;200&display=swap');
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
     margin: 0;
     padding: 0;
     background-color: var(--gray-50);
     color: var(--gray-900);
-    line-height: 1.5;
+    line-height: 1;
 }
 
 .header {
@@ -80,21 +83,88 @@ tr:hover td {
 @media (max-width: 768px) {
     .header {
         padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
     }
     
     .header h1 {
         font-size: 1.5rem;
+        text-align: center;
     }
     
     .container {
-        margin: 1rem auto;
+        margin: 0;
+        padding: 0;
     }
     
     .menu-card {
         border-radius: 0;
+        box-shadow: none;
     }
-    
+
+    /* Table responsive styles */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
     th, td {
         padding: 0.75rem 1rem;
+        min-width: 120px;
+    }
+
+    th:last-child, td:last-child {
+        min-width: 100px;
+    }
+
+    /* Optional: Card-based layout for very small screens */
+    @media (max-width: 480px) {
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        tr {
+            margin-bottom: 1rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.5rem;
+            background: white;
+        }
+
+        td {
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+            text-align: left;
+            min-height: 30px;
+            border: none;
+        }
+
+        td:before {
+            position: absolute;
+            left: 1rem;
+            width: 45%;
+            padding-right: 10px;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        /* Add labels for mobile view */
+        td:nth-of-type(1):before { content: "A Menü"; }
+        td:nth-of-type(2):before { content: "B Menü"; }
+        td:nth-of-type(3):before { content: "Leves"; }
+        td:nth-of-type(4):before { content: "Dátum"; }
+
+        .icon {
+            display: none;
+        }
     }
 }
